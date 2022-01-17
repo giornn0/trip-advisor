@@ -14,6 +14,7 @@ export const getWeatherData = async (lat,lon)=>{
       }
     };
     const {data} = await axios.get(URL,options)
+    console.log(process.env.NEXT_PUBLIC_RAPIDAPI_API_KEY)
     return data
   } catch (error) {
     console.log(error)
