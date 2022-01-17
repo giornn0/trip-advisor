@@ -17,7 +17,6 @@ export const getPlacesData = async(type,sw,ne)=>{
         'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPIDAPI_API_KEY
       }
     }
-    console.log(process.env.NEXT_PUBLIC_RAPIDAPI_API_KEY)
     const {data:{data}} = await axios.get(URL,options)
     return data
   } catch (error) {
