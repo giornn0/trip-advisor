@@ -27,10 +27,10 @@ export default function Map({coordinates,setCoordinates,setBounds,places, setChi
           setCoordinates({lat:e.center.lat, lng:e.center.lng})
           setBounds({ne:e.marginBounds.ne, sw: e.marginBounds.sw})
         }}
-        onChildClick={(child)=> setChildClicked(child)}
+        onChildClick={(child)=>{console.log(child); setChildClicked(child)}}
       >
         {places?.map((place,index)=>(
-          <div key={`place-${index}`} className={classes.markerContainer}
+          <div key={`${index}`} className={classes.markerContainer}
               lat={Number(place.latitude)}
               lng={Number(place.longitude)}          
           >
@@ -59,7 +59,7 @@ export default function Map({coordinates,setCoordinates,setBounds,places, setChi
           </div>
         ))}
         {weatherData?.list?.map((data,index)=>(
-          <div key={`weather-${index}`} lat={data.coord.lat} lng={data.coord.lon}>
+          <div key={`${index}`} lat={data.coord.lat} lng={data.coord.lon}>
             <Image src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`} alt="weather" height="120"width="120"/>
           </div>
         ))}
